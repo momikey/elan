@@ -1,0 +1,32 @@
+#input {
+    float: left;
+    width: 49%;
+}
+
+#output {
+    float: left;
+    width: 50%;
+}
+
+#source, #compiled {
+    margin-bottom: 1em;
+}
+
+#symbols {
+    float: right;
+    width: 35%;
+}
+
+#symbols td {
+    font-size: 83.33%;
+}
+
+p.title {
+    margin-top: 0.4em;
+    margin-bottom: 0.25em;
+    font-size: 90%;
+}
+
+textarea {
+    font-family: monospace;
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elan test page</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="elan-web.css" />
+    <script src="jquery.js"></script>
+    <script src="elan.min.js"></script>
+	<script src="elan-web.js"></script>
+  </head>
+  <body>
+  <div id="input"><p class="title">Source</p>
+  <textarea id="source" name="source" rows="13" cols="66"></textarea>
+  <div id="buttons">
+	  <button id="compilebtn" name="compile">Compile</button>
+  </div>
+  <div id="output"><p class="title">Compiled Output</p>
+  <textarea id="compiled" name="compiled" rows="13" cols="66"></textarea>
+  <p class="title">Errors</p>
+  <textarea id="errors" name="errors" rows="6" cols="66"></textarea></div>
+  </div>
+  <div id="symbols">
+    <p class="title">Special Characters</p>
+    <table>
+    <tbody>
+    <tr class="odd">
+    <td style="text-align: center;">⬆</td>
+    <td style="text-align: left;">U+2B06</td>
+    <td style="text-align: left;">:++:</td>
+    <td style="text-align: left;">increment</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">⬇</td>
+    <td style="text-align: left;">U+2B07</td>
+    <td style="text-align: left;">:–:</td>
+    <td style="text-align: left;">decrement</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">≤</td>
+    <td style="text-align: left;">U+2264</td>
+    <td style="text-align: left;">&lt;=</td>
+    <td style="text-align: left;">less than or equal to</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">≥</td>
+    <td style="text-align: left;">U+2265</td>
+    <td style="text-align: left;">&gt;=</td>
+    <td style="text-align: left;">greater than or equal to</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">≠</td>
+    <td style="text-align: left;">U+2260</td>
+    <td style="text-align: left;">/=</td>
+    <td style="text-align: left;">not equal to</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">⬅</td>
+    <td style="text-align: left;">U+2B05</td>
+    <td style="text-align: left;">:=:</td>
+    <td style="text-align: left;">set equal to</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">✔</td>
+    <td style="text-align: left;">U+2714</td>
+    <td style="text-align: left;">:t:</td>
+    <td style="text-align: left;">boolean true</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">✕</td>
+    <td style="text-align: left;">U+2716</td>
+    <td style="text-align: left;">:f:</td>
+    <td style="text-align: left;">boolean false</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">☝</td>
+    <td style="text-align: left;">U+261D</td>
+    <td style="text-align: left;">:i: or :index:</td>
+    <td style="text-align: left;">index variable in an iteration</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">👆</td>
+    <td style="text-align: left;">U+1F446</td>
+    <td style="text-align: left;">:i: or :index:</td>
+    <td style="text-align: left;">index variable (same as ☝)</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">👇</td>
+    <td style="text-align: left;">U+1F447</td>
+    <td style="text-align: left;">:i: or :index:</td>
+    <td style="text-align: left;">index variable (same as ☝)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">🚫</td>
+    <td style="text-align: left;">U+1F6AB</td>
+    <td style="text-align: left;">:null:</td>
+    <td style="text-align: left;">the null value</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">➡</td>
+    <td style="text-align: left;">U+27A1</td>
+    <td style="text-align: left;">:do:</td>
+    <td style="text-align: left;">start a plain block</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">◀</td>
+    <td style="text-align: left;">U+25C0</td>
+    <td style="text-align: left;">:end:</td>
+    <td style="text-align: left;">end a block of statements</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">◼</td>
+    <td style="text-align: left;">U+25FC</td>
+    <td style="text-align: left;">:stop:</td>
+    <td style="text-align: left;">stop (break out of) a loop</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">⏩</td>
+    <td style="text-align: left;">U+23E9</td>
+    <td style="text-align: left;">:ff: or :continue</td>
+    <td style="text-align: left;">go back to the start of a loop</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">✏</td>
+    <td style="text-align: left;">U+270F</td>
+    <td style="text-align: left;">:def:</td>
+    <td style="text-align: left;">define a function</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">👍</td>
+    <td style="text-align: left;">U+1F44D</td>
+    <td style="text-align: left;">:yes:</td>
+    <td style="text-align: left;">return boolean true</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">👎</td>
+    <td style="text-align: left;">U+1F44E</td>
+    <td style="text-align: left;">:no:</td>
+    <td style="text-align: left;">return boolean false</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">🔀</td>
+    <td style="text-align: left;">U+1F500</td>
+    <td style="text-align: left;">:loop:</td>
+    <td style="text-align: left;">begin a loop</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">🔃</td>
+    <td style="text-align: left;">U+1F503</td>
+    <td style="text-align: left;">:loop:</td>
+    <td style="text-align: left;">begin a loop (same as 🔀)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">➰</td>
+    <td style="text-align: left;">U+27B0</td>
+    <td style="text-align: left;">:loop:</td>
+    <td style="text-align: left;">begin a loop (same as 🔀)</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">🔁</td>
+    <td style="text-align: left;">U+1F501</td>
+    <td style="text-align: left;">:iter:</td>
+    <td style="text-align: left;">begin an iteration</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">↩</td>
+    <td style="text-align: left;">U+21A9</td>
+    <td style="text-align: left;">:return:</td>
+    <td style="text-align: left;">return a value from a function</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">⏎</td>
+    <td style="text-align: left;">U+23CE</td>
+    <td style="text-align: left;">:return:</td>
+    <td style="text-align: left;">return (same as ↩)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">📞</td>
+    <td style="text-align: left;">U+1F4DE</td>
+    <td style="text-align: left;">:call:</td>
+    <td style="text-align: left;">call a function</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">📱</td>
+    <td style="text-align: left;">U+1F4F1</td>
+    <td style="text-align: left;">:call:</td>
+    <td style="text-align: left;">call a function (same as 📞)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">✉</td>
+    <td style="text-align: left;">U+2709</td>
+    <td style="text-align: left;">:with:</td>
+    <td style="text-align: left;">define parameters to a function</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">💡</td>
+    <td style="text-align: left;">U+1F4A1</td>
+    <td style="text-align: left;">:switch:</td>
+    <td style="text-align: left;">choose a block based on a value</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">☑</td>
+    <td style="text-align: left;">U+2611</td>
+    <td style="text-align: left;">:case:</td>
+    <td style="text-align: left;">define a case that can be chosen</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">🔘</td>
+    <td style="text-align: left;">U+1F518</td>
+    <td style="text-align: left;">:case:</td>
+    <td style="text-align: left;">define a case (same as ☑)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">☺</td>
+    <td style="text-align: left;">U+263A</td>
+    <td style="text-align: left;">:object:</td>
+    <td style="text-align: left;">define an object</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">📦</td>
+    <td style="text-align: left;">U+1F4E6</td>
+    <td style="text-align: left;">:object:</td>
+    <td style="text-align: left;">define an object (same as ☺)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">🔨</td>
+    <td style="text-align: left;">U+1F528</td>
+    <td style="text-align: left;">:new:</td>
+    <td style="text-align: left;">create a new object</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">🔍</td>
+    <td style="text-align: left;">U+1F50D</td>
+    <td style="text-align: left;">:try:</td>
+    <td style="text-align: left;">try a block and catch errors</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">🔎</td>
+    <td style="text-align: left;">U+1F50E</td>
+    <td style="text-align: left;">:try:</td>
+    <td style="text-align: left;">try a block (same as 🔍)</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">✋</td>
+    <td style="text-align: left;">U+270B</td>
+    <td style="text-align: left;">:catch:</td>
+    <td style="text-align: left;">catch an error from a try block</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">⚾</td>
+    <td style="text-align: left;">U+26BE</td>
+    <td style="text-align: left;">:throw:</td>
+    <td style="text-align: left;">throw an error that can be caught</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: center;">💣</td>
+    <td style="text-align: left;">U+1F4A3</td>
+    <td style="text-align: left;">:throw:</td>
+    <td style="text-align: left;">throw an error (same as ⚾)</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: center;">💩</td>
+    <td style="text-align: left;">U+1F4A9</td>
+    <td style="text-align: left;">:throw:</td>
+    <td style="text-align: left;">throw an error (same as ⚾)</td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</body>
+ </html>
