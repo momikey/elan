@@ -190,7 +190,7 @@ val
 	| NUMBER	-> {type: "number", value: $1}
 	| BOOL		-> {type: "boolean", value: ($1 == "\u2714" || $1 == ":t:") ? true : false}
 	| STRING	-> {type: "string", value: $1}
-	| list		-> $1
+	| list		-> {type: "listvalue", values: $1.values}
 	| NULL		-> {type: "null"}
 	| INDEX		-> {type: "_indexvar"}	// special for iterators
 	;

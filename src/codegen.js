@@ -110,6 +110,9 @@ function compileNode(node, options) {
 		case "list":
 			code = compileList(node);
 			break;
+		case "listvalue":
+			code = compileListValue(node);
+			break;
 		case "logical":
 			code = compileLogical(node);
 			break;
@@ -300,6 +303,10 @@ function compileIterator(node) {
 
 function compileList(node) {
 	return compile(node.values, {separator: ','});
+}
+
+function compileListValue(node) {
+	return "[" + compile(node.values, {separator: ','}) + "]";
 }
 
 function compileLogical(node) {
