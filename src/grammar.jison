@@ -228,8 +228,8 @@ comparison_operation
 	: e LESS e			-> {type: "compare", op: $2, opers: [$1, $3]}
 	| e GREATER e		-> {type: "compare", op: $2, opers: [$1, $3]}
 	| e EQUAL e			-> {type: "compare", op: "==", opers: [$1, $3]}
-	| e LESS_EQUAL e	-> {type: "compare", op: $2, opers: [$1, $3]}
-	| e GREATER_EQUAL e	-> {type: "compare", op: $2, opers: [$1, $3]}
+	| e LESS_EQUAL e	-> {type: "compare", op: "<=", opers: [$1, $3]}
+	| e GREATER_EQUAL e	-> {type: "compare", op: ">=", opers: [$1, $3]}
 	| e NOT_EQUAL e		-> {type: "compare", op: "!=", opers: [$1, $3]}
 	;
 
