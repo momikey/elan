@@ -1,0 +1,22 @@
+{
+  "name": "elan-language",
+  "version": "0.1.4",
+  "description": "Simple scripting language using Unicode",
+  "main": "src/main.js",
+  "author": "Michael Potter <michael@potterpcs.net>",
+  "license": "MIT",
+  "dependencies": {
+    "ebnf-parser": "^0.1.10",
+    "jison": "^0.4.15",
+    "lex-parser": "^0.1.4",
+    "uglify-js": "^2.4.17"
+  },
+  "devDependencies": {
+    "brfs": "^1.4.0",
+    "browserify": "^9.0.3",
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
