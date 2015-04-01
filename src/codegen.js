@@ -228,7 +228,7 @@ function compileCatch(node) {
 
 function compileChoice(node) {
 	return "switch (" + compile(node.switchexpr) + ") { " +
-		compile(node.cases) + " default: " + compile(node.defaultexpr) + "}";
+		node.cases.map(compile).join("") + " default: " + compile(node.defaultexpr) + "}";
 }
 
 function compileCompareOp(node) {

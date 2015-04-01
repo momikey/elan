@@ -151,10 +151,15 @@ iteration_statement
 	;
 
 choice_statement
-	: e SWITCH e case_list	-> {type: "choice", switchexpr: $1, defaultexpr: $3, cases: $4}
+	: e SWITCH block case_list	-> {type: "choice", switchexpr: $1, defaultexpr: $3, cases: $4}
 	;
 
 case_list
+	: case					-> [$1]
+	| case_list case		-> $1.concat($2)
+	;
+
+case
 	: CASE e DO block		-> {type: "case", when: $2, statements: $4}
 	;
 
